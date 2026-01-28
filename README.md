@@ -1,39 +1,16 @@
-# Hello World with React boilerplate
+﻿# Todo List - React
 
-Start coding a react application
+Este es el proyecto de la lista de tareas que armé para la cursada de Full Stack. La idea era aplicar los conceptos de React que venimos viendo, como el manejo de estados y los eventos.
 
-> If you are working locally instead of using codespaces or gitpod, please follow [local installation steps](#local-installation-skip-if-you-are-working-on-codespaces-or-gitpod) and come back to this part of the readme.
+### Lo que hice en el proyecto:
+* Armé la estructura principal usando componentes de React.
+* Logré que las tareas se agreguen solo cuando tocás "Enter" en el teclado.
+* Puse una función para borrar las tareas usando `.filter` para que el estado se actualice correctamente.
+* Configuré el estilo con CSS para que el botón de borrar (la X) solo se vea cuando pasás el mouse por arriba de la tarea.
+* Metí un condicional para que, si no hay tareas, te avise que tenés que agregar una.
+* Le di un diseño limpio con una fuente más copada y un fondo con degradado.
 
-## How to start coding?
+### Cómo hacerlo andar:
+Basta con clonar el repo, tirar un `npm install` y después un `npm run start` para verlo en el navegador.
 
-- Install the packages with `$ npm install`.
-- Run the webpack server with `$ npm run start`
-
-You can update the `styles/index.css` or `js/index.js` depending on your needs.
-Add more files into your, `./src/js/components` or styles folder as you need them.
-
-## Local Installation (skip if you are working on codespaces or gitpod)
-
-Download the boilerplate using git
-
-```
-$ git clone https://github.com/4GeeksAcademy/react-hello.git
-$ cd react-hello
-```
-
-## Publish your website!
-
-This boilerplate is 100% compatible with the free [github pages](https://pages.github.com/) and [vercel](https://vercel.com/) hosting.
-
-It takes just 2 minutes to deploy, [click here to start the process](https://4geeks.com/docs/start/deploy-to-render-com).
-
-## Other features
-
-- Automatic Code Formatting: Use of [Prettier](https://prettier.io/) for automatic code indentation and formatting.
-- Error reporting: Use of [eslint](https://eslint.org/) for better error reporting.
-
-### Contributors
-
-This template was built as part of the 4Geeks Academy [Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) by [Alejandro Sanchez](https://twitter.com/alesanchezr) and many other contributors. Find out more about our [Full Stack Developer Course](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer), and [Data Science Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning).
-
-You can find other templates and resources like this at the [school github page](https://github.com/4geeksacademy/).
+**Jorge Otero**

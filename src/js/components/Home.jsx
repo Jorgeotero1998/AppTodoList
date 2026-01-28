@@ -1,28 +1,52 @@
-import React from "react";
+﻿import React, { useState } from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-            
+    const [tarea, setTarea] = useState("");
+    const [lista, setLista] = useState([]);
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
+    const agregarTarea = (e) => {
+        if (e.key === "Enter" && tarea.trim() !== "") {
+            setLista([...lista, tarea.trim()]);
+            setTarea("");
+        }
+    };
+
+    return (
+        <div className="app-wrapper">
+            <h1 className="main-title">tareas</h1>
+            <div className="todo-container">
+                <div className="input-group">
+                    <input
+                        type="text"
+                        placeholder="¿Qué falta por hacer?"
+                        value={tarea}
+                        onChange={(e) => setTarea(e.target.value)}
+                        onKeyDown={agregarTarea}
+                    />
+                </div>
+                <ul className="task-list">
+                    {lista.length === 0 ? (
+                        <li className="no-tasks">No hay tareas, añadir tareas</li>
+                    ) : (
+                        lista.map((item, index) => (
+                            <li key={index} className="task-item">
+                                <span className="task-text">{item}</span>
+                                <button 
+                                    className="delete-btn"
+                                    onClick={() => setLista(lista.filter((_, i) => i !== index))}
+                                >
+                                    X
+                                </button>
+                            </li>
+                        ))
+                    )}
+                </ul>
+                <div className="list-footer">
+                    {lista.length} {lista.length === 1 ? "item" : "items"} left
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default Home;
