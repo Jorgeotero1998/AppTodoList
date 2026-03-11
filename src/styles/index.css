@@ -1,88 +1,154 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap');
+﻿@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  /* Fondo con múltiples colores en degradado */
+  background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .app-wrapper {
-    width: 100%;
-    max-width: 500px;
-    margin-top: 60px;
+  width: 100%;
+  max-width: 450px;
+  padding: 20px;
 }
 
 .main-title {
-    font-size: 85px;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 10px;
-    color: #2d3436;
-    letter-spacing: -2px;
+  text-align: center;
+  font-size: 6rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.95);
+  /* */
+  text-transform: none;
+  letter-spacing: -3px;
+  line-height: 1;
+  position: relative; /* Necesario para el subrayado */
+  display: inline-block; /* Para que el subrayado se ajuste al ancho del texto */
+  left: 50%;
+  transform: translateX(-50%);
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* "subrayado"  */
+.main-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 10%;
+  width: 80%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+@keyframes fadeInTitle {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 0.85;
+    transform: translateY(0);
+  }
 }
 
 .todo-container {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    overflow: hidden;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  border: none;
 }
 
 .input-group input {
-    width: 100%;
-    padding: 20px 25px;
-    font-size: 22px;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid #f0f0f0;
-    font-weight: 200;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #eee;
+  padding: 20px 30px;
+  font-size: 1.2rem;
+  color: #333;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 .task-list {
-    padding: 0;
-    margin: 0;
-    list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .task-item {
-    padding: 18px 25px;
-    font-size: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #f9f9f9;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f9f9f9;
+  transition: background 0.3s ease;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.task-item:hover {
+  background: #fcfcfc;
 }
 
 .delete-btn {
-    opacity: 0;
-    background: none;
-    border: none;
-    color: #ff7675;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 5px 10px;
-    transition: opacity 0.2s;
+  display: none;
+  background: #ff4b2b;
+  color: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s;
 }
 
 .task-item:hover .delete-btn {
-    opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-btn:hover {
+  transform: scale(1.1);
+  background: #e63946;
 }
 
 .no-tasks {
-    padding: 40px;
-    color: #999;
-    text-align: center;
-    font-style: italic;
+  padding: 50px 20px;
+  text-align: center;
+  color: #aaa;
+  font-style: italic;
 }
 
 .list-footer {
-    padding: 12px 25px;
-    font-size: 14px;
-    color: #aaa;
-    background: white;
-    border-top: 1px solid #eee;
+  padding: 15px 30px;
+  font-size: 0.85rem;
+  color: #888;
+  background: #fff;
+  border-top: 1px solid #eee;
 }
